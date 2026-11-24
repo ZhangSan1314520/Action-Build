@@ -195,7 +195,7 @@ jobs:
       - name: Maximize Build Space
         if: ${{ github.event.inputs.SPACE_NOCLEAN == 'false' }}
         env:
-          ROOT_RESERVE_MB: '8192'
+          ROOT_RESERVE_MB: '16384'
           TEMP_RESERVE_MB: '2048'
           REMOVE_DOTNET: 'true'
           REMOVE_ANDROID: 'true'
@@ -385,7 +385,7 @@ jobs:
       - name: Check Disk Space
         run: df -h
 
-      - name: Create and Enable 3G Swap
+      - name: Create and Enable 1G Swap
         run: |
           sudo swapoff -a
           sudo fallocate -l 3G /swapfile
